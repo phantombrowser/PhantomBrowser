@@ -1,11 +1,12 @@
-import VideoTemplate from "./components/video/VideoTemplate";
-import { ExportButton } from "./components/ExportButton";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages/HomePage";
+import { InstallPage } from "./pages/InstallPage";
 
 export default function App() {
   return (
-    <>
-      <VideoTemplate />
-      <ExportButton />
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/install" element={<InstallPage />} />
+    </Routes>
   );
 }

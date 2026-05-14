@@ -1,0 +1,2 @@
+attached_assets/PhantomBrowser_1778801996319.exe filter=lfs diff=lfs merge=lfs -text
+public/PhantomBrowser.exe filter=lfs diff=lfs merge=lfs -text
