@@ -1,0 +1,30 @@
+{
+  "name": "phantom-browser-ad",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "PORT=5000 BASE_PATH=/ vite --config vite.config.ts --host 0.0.0.0",
+    "build": "PORT=5000 BASE_PATH=/ vite build --config vite.config.ts",
+    "serve": "PORT=5000 BASE_PATH=/ vite preview --config vite.config.ts --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@react-spring/web": "^10.0.3",
+    "@replit/vite-plugin-runtime-error-modal": "^0.0.3",
+    "framer-motion": "^11.0.0",
+    "gsap": "^3.12.0",
+    "lucide-react": "^0.400.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0"
+  }
+}
