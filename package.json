@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "PORT=5000 BASE_PATH=/ vite --config vite.config.ts --host 0.0.0.0",
-    "build": "PORT=5000 BASE_PATH=/ vite build --config vite.config.ts",
+    "build": "vite build --config vite.config.ts",
+    "start": "vite preview --config vite.config.ts --host 0.0.0.0 --port ${PORT:-4173}",
     "serve": "PORT=5000 BASE_PATH=/ vite preview --config vite.config.ts --host 0.0.0.0"
   },
   "dependencies": {
