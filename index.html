@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Phantom Browser — Explore the Dark Web Safely</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" id="favicon" type="image/png" href="/ghost-icon.png" />
 
     <meta property="og:title" content="Phantom Browser — Explore the Dark Web Safely" />
     <meta property="og:description" content="Privacy-first browser with integrated Tor routing and DuckDuckGo search. Zero cookies, zero tracking, zero compromise." />
@@ -19,6 +19,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <script>
+      (function () {
+        var canvas = document.createElement('canvas');
+        canvas.width = 64;
+        canvas.height = 64;
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        var favicon = document.getElementById('favicon');
+        var start = null;
+
+        img.onload = function () {
+          function frame(ts) {
+            if (!start) start = ts;
+            var elapsed = ts - start;
+
+            // Float: gentle sine wave vertical offset (±5px over 64px canvas)
+            var floatY = Math.sin(elapsed / 700) * 5;
+
+            // Pulse: subtle scale oscillation
+            var scale = 1 + Math.sin(elapsed / 900) * 0.06;
+
+            // Glow alpha: pulses between 0.3 and 0.7
+            var glowAlpha = 0.3 + Math.sin(elapsed / 800) * 0.2;
+
+            ctx.clearRect(0, 0, 64, 64);
+
+            ctx.save();
+            ctx.translate(32, 32 + floatY);
+            ctx.scale(scale, scale);
+
+            // Soft cyan glow behind the ghost
+            var grd = ctx.createRadialGradient(0, 2, 2, 0, 2, 26);
+            grd.addColorStop(0, 'rgba(90,247,142,' + glowAlpha + ')');
+            grd.addColorStop(1, 'rgba(0,245,255,0)');
+            ctx.fillStyle = grd;
+            ctx.beginPath();
+            ctx.arc(0, 2, 26, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.drawImage(img, -24, -24, 48, 48);
+            ctx.restore();
+
+            favicon.href = canvas.toDataURL('image/png');
+            requestAnimationFrame(frame);
+          }
+          requestAnimationFrame(frame);
+        };
+
+        img.src = '/ghost-icon.png';
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
